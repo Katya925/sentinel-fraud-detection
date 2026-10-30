@@ -1,0 +1,57 @@
+
+# ============================================================
+# SENTINEL - ARCHIVOS EXCLUIDOS DE GIT
+# ============================================================
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Caché de pruebas
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Configuración local
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración local del editor
+.vscode/
+.idea/
+
+# Registros temporales
+*.log
+
+# Bases de datos locales de MLflow
+mlruns/
+mlflow.db
+*.db-journal
+
+# Archivos temporales de Jupyter
+.ipynb_checkpoints/
+
+# Credenciales y claves
+*.pem
+*.key
+credentials.json
+service-account.json
+
+# Archivos comprimidos generados
+*.zip
+
+# Datos descargados para entrenamiento
+data/raw/
+data/cache/

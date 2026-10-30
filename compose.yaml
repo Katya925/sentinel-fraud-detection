@@ -1,0 +1,48 @@
+# ============================================================
+# PROYECTO SENTINEL
+# FASE V - INTEGRACIÓN CON DOCKER COMPOSE
+# ============================================================
+
+services:
+
+  # Backend: API FastAPI y modelo ML
+  backend:
+    image: sentinel-backend:v1
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # Frontend: interfaz Streamlit
+  frontend:
+    image: sentinel-frontend:v1
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+
+    ports:
+      - "127.0.0.1:8501:8501"
+
+    environment:
+      API_URL: http://backend:8000
+
+    depends_on:
+      backend:
+        condition: service_healthy
+
+    restart: unless-stopped

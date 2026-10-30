@@ -1,0 +1,24 @@
+
+# Archivos excluidos del contexto Docker del frontend
+
+.git/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Modelo y archivos del backend
+backend/
+
+# Documentación y evidencias
+docs/
+
+# Archivos temporales
+*.log
+*.zip
+.env
+
+# Archivos de entrenamiento
+*.ipynb
+mlruns/
+mlflow.db

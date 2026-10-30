@@ -1,0 +1,10 @@
+
+# Archivos que no deben incluirse en la imagen backend
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.env
+*.log
