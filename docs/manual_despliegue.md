@@ -77,6 +77,8 @@ Sentinel/
 │   ├── pruebas.md
 │   ├── manual_despliegue.md
 │   └── evidencias/
+├── notebooks/
+│   ├── FaseII.ipynb
 ├── compose.yaml
 └── README.md
 ```
