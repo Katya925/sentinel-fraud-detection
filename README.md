@@ -9,7 +9,6 @@ La solución utiliza un modelo Random Forest entrenado con un dataset público d
 
 Sentinel utiliza un enfoque **Human-in-the-Loop**: las alertas requieren revisión humana y no generan rechazos automáticos.
 
-**Importante:** el modelo es experimental y no está aprobado para producción.
 
 ## 2. Objetivo
 
@@ -138,7 +137,7 @@ La respuesta de `/predict` contiene la puntuación estimada, el umbral, la clasi
 
 ## 10. Pruebas realizadas
 
-Se ejecutaron ** doce pruebas automatizadas mediante Pytest**, todas satisfactorias.
+Se ejecutaron **doce pruebas automatizadas mediante Pytest**, todas satisfactorias.
 
 Las pruebas incluyen:
 - Disponibilidad de la API.
@@ -194,5 +193,3 @@ El procedimiento de despliegue se describirá en `docs/manual_despliegue.md` com
 ## 13. Alcance académico
 
 El proyecto demuestra la integración funcional de Machine Learning, API REST, interfaz web y contenedores Docker en un entorno local.
-
-Su propósito es educativo y no representa una solución productiva de una compañía aseguradora.
