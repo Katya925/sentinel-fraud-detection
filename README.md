@@ -138,7 +138,30 @@ La respuesta de `/predict` contiene la puntuación estimada, el umbral, la clasi
 
 ## 10. Pruebas realizadas
 
-Se ejecutaron cuatro pruebas automatizadas mediante Pytest, todas satisfactorias.
+Se ejecutaron ** doce pruebas automatizadas mediante Pytest**, todas satisfactorias.
+
+Las pruebas incluyen:
+- Disponibilidad de la API.
+- Consulta de variables.
+- Predicciones válidas.
+- Solicitudes incompletas.
+- Tipos de datos incompatibles.
+- Variables adicionales.
+- Categorías desconocidas.
+- Consistencia de predicciones.
+- Aplicación del umbral de alerta.
+- Validación del rango de probabilidades.
+- Revisión humana obligatoria.
+
+Para ejecutar las pruebas:
+
+```bash
+python -m pip install pytest httpx
+python -m pytest tests/ -v
+```
+
+Los resultados y evidencias se documentan en 
+[Pruebas y validación](docs/pruebas.md)
 
 También se realizaron pruebas manuales de:
 

@@ -47,7 +47,9 @@ Los experimentos de entrenamiento y optimización se registraron mediante MLflow
 
 ## 4. Pruebas automatizadas del backend
 
-Se utilizó Pytest para verificar los endpoints de FastAPI.
+Se utilizó Pytest para verificar el funcionamiento de la API
+FastAPI, incluyendo validación de solicitudes, casos especiales,
+consistencia de resultados y reglas de clasificación.
 
 ### Comando de ejecución
 
@@ -61,14 +63,50 @@ python -m pytest tests/ -v
 |---|---|---|
 | P01 | GET /health | Aprobada |
 | P02 | GET /features | Aprobada |
-| P03 | POST /predict | Aprobada |
-| P04 | Validación de variables faltantes | Aprobada |
+| P03 | POST /predict válido | Aprobada |
+| P04 | Variables faltantes | Aprobada |
+| P05 | Solicitud sin datos | Aprobada |
+| P06 | Tipo de dato no permitido (lista) | Aprobada |
+| P07 | Variable adicional | Aprobada |
+| P08 | Categoría desconocida | Aprobada |
+| P09 | Consistencia de predicciones | Aprobada |
+| P10 | Consistencia del umbral | Aprobada |
+| P11 | Probabilidad dentro del rango [0,1] | Aprobada |
+| P12 | Revisión humana obligatoria | Aprobada |
 
-**Resultado general:** 4 passed, 1 warning.
+**Resultado general: 12 pruebas aprobadas.**
 
-La advertencia corresponde a `StarletteDeprecationWarning`, relacionada con el cliente de pruebas HTTP.
+### Análisis de resultados
 
-No se observaron fallos en las cuatro pruebas automatizadas.
+Las pruebas confirman que:
+
+- La API responde correctamente a las solicitudes de salud.
+- El modelo dispone de las 32 variables requeridas.
+- Se pueden generar predicciones a partir de reclamaciones válidas.
+- Las solicitudes incompletas son rechazadas.
+- Los tipos incompatibles con el esquema son rechazados.
+- Las variables adicionales no impiden procesar la reclamación.
+- Las categorías desconocidas reciben una respuesta controlada.
+- Las predicciones repetidas producen resultados consistentes.
+- La clasificación de alerta corresponde al umbral configurado.
+- Las probabilidades devueltas se encuentran entre 0 y 1.
+- El sistema conserva la indicación de revisión humana.
+
+### Limitaciones
+
+La prueba de categoría desconocida admite una respuesta HTTP 200
+o 422; por tanto, no demuestra que la categoría sea rechazada.
+
+La prueba de tipo incorrecto utiliza una lista como valor inválido.
+No verifica todos los errores posibles de tipo.
+
+Todavía no se han implementado pruebas completas de rangos de
+negocio, carga, concurrencia o seguridad.
+
+### Evidencias
+
+- `docs/evidencias/pytest_12_pruebas.png`
+- `docs/evidencias/pytest_resultados.txt`
 
 ## 5. Pruebas manuales de FastAPI
 
