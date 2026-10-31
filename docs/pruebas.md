@@ -252,8 +252,8 @@ Las capturas de pantalla se almacenan en `docs/evidencias/`.
 | Archivo | Descripción |
 |---|---|
 | `docker_backend_build.png` | Construcción de la imagen backend |
-| `docker_backend_running.png` | Ejecución del backend en Docker |
-| `docker_backend_predict.png` | Predicción mediante Swagger |
+| `docker_backend_running1.png` | Ejecución del backend en Docker |
+| `docker_backend_predict1.png` | Predicción mediante Swagger |
 | `docker_frontend_build.png` | Construcción de la imagen frontend |
 | `docker_compose_ps.png` | Estado de los contenedores |
 | `docker_compose_backend.png` | Swagger desde Docker Compose |
